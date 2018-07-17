@@ -1,0 +1,73 @@
+Decomposition of Family Record
+
+family
+    last_name
+    couple_name
+    address
+
+member
+    member_type
+    first_name
+    middle_name
+    last_name
+
+phone
+    phone_type
+    number
+    text_msg_okay
+
+email
+    email_type
+    address
+
+social
+    social_type
+    url
+
+member_type
+    HEAD_OF_HOUSE
+    SPOUSE
+    CHILD
+
+member_group
+    ELDERS_QUORUM
+    RELiEF_SOCIETY
+    YOUNG_MEN
+    YOUNG_WOMEN
+    PRIMARY
+    INFANT
+
+phone_type
+    LAND_LINE
+    MOBILE
+
+email_type
+    FAMILY
+    INDIVIDUAL
+
+social_type
+    FACEBOOK
+    GOOGLE
+    TWEET
+    LINKEDIN
+
+
+"Family Name","Couple Name","Family Phone","Family Email","Family Address",
+"Head Of House Name","Head Of House Phone","Head Of House Email",
+"Spouse Name","Spouse Phone","Spouse Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email",
+"Child Name","Child Phone","Child Email"
