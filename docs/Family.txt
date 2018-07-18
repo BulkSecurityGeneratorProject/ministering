@@ -44,6 +44,7 @@ phone_type
 email_type
     FAMILY
     INDIVIDUAL
+    LDS_ORG
 
 social_type
     FACEBOOK
