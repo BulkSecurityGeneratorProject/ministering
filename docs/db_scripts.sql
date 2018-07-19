@@ -1,66 +1,84 @@
--- auto-generated definition
-create table IF NOT EXISTS org
+-- -------------------------------------------------------------------------------
+-- Some scripts
+-- -------------------------------------------------------------------------------
+-- Get list of assignments for a member id
+select
+    f.*
+  from
+    member m1,
+    ministry m2,
+    stewardship s,
+    assignment a,
+    family f
+  where
+    m1.id = m2.member_id
+    and s.companionship_id = m2.companionship_id
+    and a.stewardship_id = s.id
+    and a.family_id = f.id
+    and m1.id = 1;
+
+-- Get list of families that are assigned to members.
+select
+    f.*
+from
+    family f,
+    assignment a
+WHERE a.family_id = f.id;
+
+-- ----------------------------------------------------------------------
+-- Ministering Table creation
+-- ----------------------------------------------------------------------
+create table assignment
 (
-    id   int auto_increment primary key,
-    name varchar(100) not null,
-    constraint org_name_uindex
-    unique (name)
+	id int auto_increment
+		primary key,
+	stewardship_id int not null,
+	family_id int null
 )
-    comment 'Organization Ward, i.e. Copperhill 10th Ward';
+comment 'The family assignments for the companionship.' engine=InnoDB
+;
 
--- auto-generated definition
-create table IF NOT EXISTS member
+create index assignment_stewardship_id_fk
+	on assignment (stewardship_id)
+;
+
+create index assignment_family_id_fk
+	on assignment (family_id)
+;
+
+create table companion
 (
-    id              int auto_increment
-        primary key,
-    organization_id int          null,
-    last_name       varchar(50)  not null,
-    first_name      varchar(50)  not null,
-    address_1       varchar(100) null,
-    address_2       varchar(100) null,
-    city            varchar(50)  null,
-    state           varchar(50)  null,
-    zipcode         varchar(10)  null,
-    constraint member_organization_id_fk
-    foreign key (organization_id) references org (id)
-);
+	id int auto_increment
+		primary key,
+	member_id int not null,
+	companionship_id int not null
+)
+comment 'A member companion.' engine=InnoDB
+;
 
--- auto-generated definition
-create table IF NOT EXISTS contact_info
+create index companion_member_id_fk
+	on companion (member_id)
+;
+
+create index companion_companionship_id_fk
+	on companion (companionship_id)
+;
+
+create table companionship
 (
-    id        int auto_increment
-        primary key,
-    type      varchar(20)  not null,
-    value     varchar(100) null,
-    member_id int          not null,
-    constraint contact_info_type_uindex
-    unique (type),
-    constraint contact_info_member_id_fk
-    foreign key (member_id) references member (id)
-        on update cascade
-        on delete cascade
-);
+	id int auto_increment
+		primary key,
+	name varchar(50) not null
+)
+comment 'The companionship of members, lastname/lastname.' engine=InnoDB
+;
 
-create index contact_info_member_id_fk
-    on contact_info (member_id);
+alter table companion
+	add constraint companion_companionship_id_fk
+		foreign key (companionship_id) references companionship (id)
+			on update cascade on delete cascade
+;
 
-
-create index member_organization_id_fk
-    on member (organization_id);
-
--- auto-generated definition
-create table IF NOT EXISTS notes
-(
-    id          int auto_increment
-        primary key,
-    note        longtext null,
-    update_date datetime null,
-    create_date datetime not null
-);
-
-
-
--- New Scripts 07/18/2018
 create table email
 (
 	id int auto_increment
@@ -87,6 +105,12 @@ create table family
 comment 'Family Information' engine=InnoDB
 ;
 
+alter table assignment
+	add constraint assignment_family_id_fk
+		foreign key (family_id) references family (id)
+			on update cascade on delete cascade
+;
+
 create table member
 (
 	id int auto_increment
@@ -97,6 +121,7 @@ create table member
 	first_name varchar(50) not null,
 	middle_name varchar(100) null,
 	last_name varchar(50) not null,
+	birthdate date null,
 	constraint member_family_id_fk
 		foreign key (family_id) references family (id)
 			on update cascade on delete cascade
@@ -116,10 +141,45 @@ create index member_type_index
 	on member (type)
 ;
 
+alter table companion
+	add constraint companion_member_id_fk
+		foreign key (member_id) references member (id)
+			on update cascade on delete cascade
+;
+
 alter table email
 	add constraint email_member_id_fk
 		foreign key (member_id) references member (id)
 			on update cascade on delete cascade
+;
+
+create table ministry
+(
+	id int auto_increment
+		primary key,
+	member_id int not null,
+	companionship_id int null,
+	stewardship_id int null,
+	constraint ministry_member_id_fk
+		foreign key (member_id) references member (id)
+			on update cascade on delete cascade,
+	constraint ministry_companionship_id_fk
+		foreign key (companionship_id) references companionship (id)
+			on update cascade on delete cascade
+)
+engine=InnoDB
+;
+
+create index ministry_member_id_fk
+	on ministry (member_id)
+;
+
+create index ministry_companionship_id_fk
+	on ministry (companionship_id)
+;
+
+create index ministry_stewardship_id_fk
+	on ministry (stewardship_id)
 ;
 
 create table org
@@ -170,5 +230,32 @@ create index social_media_member_id_fk
 	on social_media (member_id)
 ;
 
+create table stewardship
+(
+	id int auto_increment
+		primary key,
+	companionship_id int not null,
+	constraint stewardship_companionship_id_fk
+		foreign key (companionship_id) references companionship (id)
+			on update cascade on delete cascade
+)
+comment 'The stewardship of the member.' engine=InnoDB
+;
+
+create index stewardship_companionship_id_fk
+	on stewardship (companionship_id)
+;
+
+alter table assignment
+	add constraint assignment_stewardship_id_fk
+		foreign key (stewardship_id) references stewardship (id)
+			on update cascade on delete cascade
+;
+
+alter table ministry
+	add constraint ministry_stewardship_id_fk
+		foreign key (stewardship_id) references stewardship (id)
+			on update cascade on delete cascade
+;
 
 
