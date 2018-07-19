@@ -1,0 +1,2 @@
+INSERT INTO ministering.email (id, member_id, type, address) VALUES (1, 1, 'INDIVIDUAL', 'dqromney@gmail.com');
+INSERT INTO ministering.email (id, member_id, type, address) VALUES (2, 2, 'INDIVIDUAL', 'hatchc4@gmail.com');

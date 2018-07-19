@@ -1,0 +1,1 @@
+INSERT INTO ministering.org (id, name) VALUES (1, 'Copperhill 10th Ward');

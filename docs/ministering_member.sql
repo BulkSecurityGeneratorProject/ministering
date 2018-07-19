@@ -1,0 +1,8 @@
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (1, 1, 1, 'HEAD_OF_HOUSE', 'David', 'Quenten', 'Romney', '1962-08-29');
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (2, 1, 1, 'SPOUSE', 'Christine', 'H', 'Romney', '1961-12-29');
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (3, 1, 2, 'HEAD_OF_HOUSE', 'Peter', null, 'King', null);
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (4, 1, 2, 'SPOUSE', 'Lori', null, 'King', null);
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (5, 1, 8, 'HEAD_OF_HOUSE', 'Scott', null, 'Beckstrom', '1962-01-01');
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (6, 1, 8, 'SPOUSE', 'Dianna', null, 'Beckstrom', '1972-01-01');
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (7, 1, 8, 'CHILD', 'Kyle', null, 'Beckstrom', '1998-01-01');
+INSERT INTO ministering.member (id, org_id, family_id, type, first_name, middle_name, last_name, birthdate) VALUES (8, 1, 4, 'CHILD', 'Adam', null, 'King', null);

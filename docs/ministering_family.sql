@@ -1,0 +1,11 @@
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (1, 'Romney', 'David and Christine', '4033 South Powderwood Drive, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (2, 'King', 'Peter and Lori', '4226 Williamsburg Drive, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (3, 'Beynon', 'Annette', '4240 South 6400 West, West Valley City, Utah 84128-6524');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (4, 'Kelly', 'Norman and Jill', '4213 South 6820 West, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (5, 'Sandstrom', 'Chris and Angela', '6564 West Brookview Circle, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (6, 'Smith', 'Tim and Mary', '4277 South 6220 West, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (7, 'Rackley', 'Donna', '4240 South 6400 West, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (8, 'Beckstrom', 'Scott and Dianna', '6498 West 4200 South, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (9, 'Brown', 'Scott and Lisa', '6314 West King Valley Drive, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (10, 'Fischer', 'Melissa Anne', '6486 West 4200 South, West Valley City, Utah 84128');
+INSERT INTO ministering.family (id, name, couple_name, address) VALUES (11, 'Schwab', 'Richard and Jessica', '6334 West 4215 South, West Valley City, Utah 84128');
