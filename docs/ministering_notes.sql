@@ -1,0 +1,1 @@
+INSERT INTO ministering.notes (id, type, member_id, companionship_id, family_id, note) VALUES (1, 'MEMBER', 1, 1, 1, 'Our fearless leader. ');

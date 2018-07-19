@@ -258,6 +258,33 @@ alter table ministry
 			on update cascade on delete cascade
 ;
 
+-- auto-generated definition
+create table notes
+(
+    id               int auto_increment
+        primary key,
+    type             varchar(20) not null,
+    member_id        int         null,
+    companionship_id int         null,
+    family_id        int         null,
+    note             mediumtext  not null,
+    constraint notes_member_id_fk
+    foreign key (member_id) references member (id),
+    constraint notes_companionship_id_fk
+    foreign key (companionship_id) references companionship (id),
+    constraint notes_family_id_fk
+    foreign key (family_id) references family (id)
+)
+    comment 'The notes taken for members, companionships, and famiies';
+
+create index notes_companionship_id_fk
+    on notes (companionship_id);
+
+create index notes_family_id_fk
+    on notes (family_id);
+
+create index notes_member_id_fk
+    on notes (member_id);
 
 -- ------------------------------------------------------------------------------
 -- Population script
@@ -320,3 +347,4 @@ INSERT INTO ministering.assignment (id, stewardship_id, family_id) VALUES (6, 2,
 INSERT INTO ministering.assignment (id, stewardship_id, family_id) VALUES (7, 2, 10);
 INSERT INTO ministering.assignment (id, stewardship_id, family_id) VALUES (8, 2, 11);
 
+INSERT INTO ministering.notes (id, type, member_id, companionship_id, family_id, note) VALUES (1, 'MEMBER', 1, 1, 1, 'Our fearless leader. ');
