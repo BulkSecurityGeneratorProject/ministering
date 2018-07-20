@@ -1,0 +1,99 @@
+entity Org {
+	name String required
+}
+entity Family {
+	name String required,
+    couple_name String,
+    address String
+}
+entity Member {
+	type FamilyType,
+    first_name String,
+    middle_name String,
+    last_name String,
+    birthdate Instant
+}
+enum FamilyType {
+    INFANT, 
+    PRIMARY, 
+    YW, 
+    YM, 
+    RELIEF_SOCIETY, 
+    ELDER,
+    HP
+}
+entity Companionship {
+	name String required
+}
+entity Phone {
+	type PhoneType
+	number String required,
+    text_msg_okay Boolean
+}
+enum PhoneType {
+	MOBILE,
+    LAND_LAND,
+    BUSINESS
+}
+entity Email {
+	type EmailType,
+    address String
+}
+enum EmailType {
+	INDIVIDUAL,
+    HOUSEHOLD,
+    BUSINESS
+}
+entity SocialMedia {
+	type SocialMediaType,
+    url String
+}
+enum SocialMediaType {
+	FACEBOOK,
+    TWITTER,
+    GOOGLE,
+    WEB_SITE,
+    BUSINESS
+}
+entity Notes {
+	type NoteType,
+    note String
+}
+entity Stewardship {}
+entity Companion {}
+entity Assignment {}
+entity Ministry {}
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Member{org} to Org
+    Companion{member} to Member
+    Companion{companionship} to Companionship
+    Assignment{stewardship} to Stewardship
+    Assignment{family} to Family
+    Stewardship{companionship} to Companionship
+    Ministry{member} to Member
+    Ministry{companionship} to Companionship
+    Ministry{stewardship} to Stewardhip
+    Phone{member} to Member
+    Email{member} to Member
+    SocialMedia{member} to Member
+    Notes{member} to Member
+    Notes{companionship} to Companionship
+    Notes{family} to Family
+}
+relationship ManyToOne {
+	Member{family} to Family
+}
+relationship OneToOne {
+	Companionship{companionship} to Stewardship
+}
+// Set pagination options
+paginate Family, Member with infinite-scroll
+paginate Companionship with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+// service all with serviceImpl except Employee, Job
+// Set an angular suffix
+angularSuffix * with ma
