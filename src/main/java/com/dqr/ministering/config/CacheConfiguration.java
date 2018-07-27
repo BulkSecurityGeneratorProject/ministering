@@ -38,6 +38,33 @@ public class CacheConfiguration {
             cm.createCache(com.dqr.ministering.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.dqr.ministering.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.dqr.ministering.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Org.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Family.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Member.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Member.class.getName() + ".orgs", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Companionship.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Phone.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Phone.class.getName() + ".members", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Email.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Email.class.getName() + ".members", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.SocialMedia.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.SocialMedia.class.getName() + ".members", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Notes.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Notes.class.getName() + ".members", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Notes.class.getName() + ".companionships", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Notes.class.getName() + ".families", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Stewardship.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Stewardship.class.getName() + ".companionships", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Companion.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Companion.class.getName() + ".members", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Companion.class.getName() + ".companionships", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Assignment.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Assignment.class.getName() + ".stewardships", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Assignment.class.getName() + ".families", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Ministry.class.getName(), jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Ministry.class.getName() + ".members", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Ministry.class.getName() + ".companionships", jcacheConfiguration);
+            cm.createCache(com.dqr.ministering.domain.Ministry.class.getName() + ".stewardships", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

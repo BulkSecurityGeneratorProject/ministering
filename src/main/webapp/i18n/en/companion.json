@@ -1,0 +1,24 @@
+
+{
+    "ministeringApp": {
+        "companion" : {
+            "home": {
+                "title": "Companions",
+                "createLabel": "Create a new Companion",
+                "createOrEditLabel": "Create or edit a Companion",
+                "search": "Search for Companion"
+            },
+            "created": "A new Companion is created with identifier {{ param }}",
+            "updated": "A Companion is updated with identifier {{ param }}",
+            "deleted": "A Companion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Companion {{ id }}?"
+            },
+            "detail": {
+                "title": "Companion"
+            },
+            "member": "Member",
+            "companionship": "Companionship"
+        }
+    }
+}

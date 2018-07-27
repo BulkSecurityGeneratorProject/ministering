@@ -1,0 +1,28 @@
+
+{
+    "ministeringApp": {
+        "companionship" : {
+            "home": {
+                "title": "Companionships",
+                "createLabel": "Create a new Companionship",
+                "createOrEditLabel": "Create or edit a Companionship",
+                "search": "Search for Companionship"
+            },
+            "created": "A new Companionship is created with identifier {{ param }}",
+            "updated": "A Companionship is updated with identifier {{ param }}",
+            "deleted": "A Companionship is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Companionship {{ id }}?"
+            },
+            "detail": {
+                "title": "Companionship"
+            },
+            "name": "Name",
+            "companionship": "Companionship",
+            "notes": "Notes",
+            "stewardship": "Stewardship",
+            "companion": "Companion",
+            "ministry": "Ministry"
+        }
+    }
+}

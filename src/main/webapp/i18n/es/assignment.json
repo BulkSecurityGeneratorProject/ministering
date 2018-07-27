@@ -1,0 +1,24 @@
+
+{
+    "ministeringApp": {
+        "assignment" : {
+            "home": {
+                "title": "Assignments",
+                "createLabel": "Crear nuevo Assignment",
+                "createOrEditLabel": "Crear o editar Assignment",
+                "search": "Search for Assignment"
+            },
+            "created": "Un nuevo Assignment ha sido creado con el identificador {{ param }}",
+            "updated": "Un Assignment ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Assignment ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Assignment {{ id }}?"
+            },
+            "detail": {
+                "title": "Assignment"
+            },
+            "stewardship": "Stewardship",
+            "family": "Family"
+        }
+    }
+}

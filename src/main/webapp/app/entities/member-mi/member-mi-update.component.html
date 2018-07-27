@@ -1,0 +1,113 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-member-mi-heading" jhiTranslate="ministeringApp.member.home.createOrEditLabel">Create or edit a Member</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!member.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="member.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="member.type" id="field_type"  required>
+                        <option value="INFANT">{{'ministeringApp.FamilyType.INFANT' | translate}}</option>
+                        <option value="PRIMARY">{{'ministeringApp.FamilyType.PRIMARY' | translate}}</option>
+                        <option value="YW">{{'ministeringApp.FamilyType.YW' | translate}}</option>
+                        <option value="YM">{{'ministeringApp.FamilyType.YM' | translate}}</option>
+                        <option value="RELIEF_SOCIETY">{{'ministeringApp.FamilyType.RELIEF_SOCIETY' | translate}}</option>
+                        <option value="ELDER">{{'ministeringApp.FamilyType.ELDER' | translate}}</option>
+                        <option value="HP">{{'ministeringApp.FamilyType.HP' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="member.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.middleName" for="field_middleName">Middle Name</label>
+                    <input type="text" class="form-control" name="middleName" id="field_middleName"
+                        [(ngModel)]="member.middleName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="member.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.birthdate" for="field_birthdate">Birthdate</label>
+                    <div class="d-flex">
+                        <input id="field_birthdate" type="datetime-local" class="form-control" name="birthdate" [(ngModel)]="birthdate"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.family" for="field_family">Family</label>
+                    <select class="form-control" id="field_family" name="family" [(ngModel)]="member.family" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="familyOption.id === member.family?.id ? member.family : familyOption" *ngFor="let familyOption of families; trackBy: trackFamilyById">{{familyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.phone" for="field_phone">Phone</label>
+                    <select class="form-control" id="field_phone" name="phone" [(ngModel)]="member.phone" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="phoneOption.id === member.phone?.id ? member.phone : phoneOption" *ngFor="let phoneOption of phones; trackBy: trackPhoneById">{{phoneOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.email" for="field_email">Email</label>
+                    <select class="form-control" id="field_email" name="email" [(ngModel)]="member.email" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="emailOption.id === member.email?.id ? member.email : emailOption" *ngFor="let emailOption of emails; trackBy: trackEmailById">{{emailOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.socialMedia" for="field_socialMedia">Social Media</label>
+                    <select class="form-control" id="field_socialMedia" name="socialMedia" [(ngModel)]="member.socialMedia" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="socialMediaOption.id === member.socialMedia?.id ? member.socialMedia : socialMediaOption" *ngFor="let socialMediaOption of socialmedias; trackBy: trackSocialMediaById">{{socialMediaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.notes" for="field_notes">Notes</label>
+                    <select class="form-control" id="field_notes" name="notes" [(ngModel)]="member.notes" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="notesOption.id === member.notes?.id ? member.notes : notesOption" *ngFor="let notesOption of notes; trackBy: trackNotesById">{{notesOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.companion" for="field_companion">Companion</label>
+                    <select class="form-control" id="field_companion" name="companion" [(ngModel)]="member.companion" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companionOption.id === member.companion?.id ? member.companion : companionOption" *ngFor="let companionOption of companions; trackBy: trackCompanionById">{{companionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.member.ministry" for="field_ministry">Ministry</label>
+                    <select class="form-control" id="field_ministry" name="ministry" [(ngModel)]="member.ministry" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ministryOption.id === member.ministry?.id ? member.ministry : ministryOption" *ngFor="let ministryOption of ministries; trackBy: trackMinistryById">{{ministryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Member.
+    -->
+    <changeSet id="20180727175637-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="family_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_family_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="family"/>
+
+        <addForeignKeyConstraint baseColumnNames="phone_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_phone_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="phone"/>
+
+        <addForeignKeyConstraint baseColumnNames="email_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_email_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="email"/>
+
+        <addForeignKeyConstraint baseColumnNames="social_media_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_social_media_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="social_media"/>
+
+        <addForeignKeyConstraint baseColumnNames="notes_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_notes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notes"/>
+
+        <addForeignKeyConstraint baseColumnNames="companion_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_companion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="companion"/>
+
+        <addForeignKeyConstraint baseColumnNames="ministry_id"
+                                 baseTableName="member"
+                                 constraintName="fk_member_ministry_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ministry"/>
+
+    </changeSet>
+</databaseChangeLog>

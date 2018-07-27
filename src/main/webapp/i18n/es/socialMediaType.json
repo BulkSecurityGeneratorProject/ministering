@@ -1,0 +1,12 @@
+{
+    "ministeringApp": {
+        "SocialMediaType" : {
+            "null": "",
+            "FACEBOOK": "FACEBOOK",
+            "TWITTER": "TWITTER",
+            "GOOGLE": "GOOGLE",
+            "WEB_SITE": "WEB_SITE",
+            "BUSINESS": "BUSINESS"
+        }
+    }
+}

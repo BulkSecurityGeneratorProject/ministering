@@ -1,0 +1,119 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ministeringApp.member.home.title">Members</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-member-mi" [routerLink]="['/member-mi/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ministeringApp.member.home.createLabel">
+            Create new Member
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ministeringApp.member.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="members">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="type"><span jhiTranslate="ministeringApp.member.type">Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="firstName"><span jhiTranslate="ministeringApp.member.firstName">First Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="middleName"><span jhiTranslate="ministeringApp.member.middleName">Middle Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="lastName"><span jhiTranslate="ministeringApp.member.lastName">Last Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="birthdate"><span jhiTranslate="ministeringApp.member.birthdate">Birthdate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="family.id"><span jhiTranslate="ministeringApp.member.family">Family</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phone.id"><span jhiTranslate="ministeringApp.member.phone">Phone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="email.id"><span jhiTranslate="ministeringApp.member.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="socialMedia.id"><span jhiTranslate="ministeringApp.member.socialMedia">Social Media</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="notes.id"><span jhiTranslate="ministeringApp.member.notes">Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="companion.id"><span jhiTranslate="ministeringApp.member.companion">Companion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ministry.id"><span jhiTranslate="ministeringApp.member.ministry">Ministry</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let member of members ;trackBy: trackId">
+                <td><a [routerLink]="['/member-mi', member.id, 'view' ]">{{member.id}}</a></td>
+                <td jhiTranslate="{{'ministeringApp.FamilyType.' + member.type}}">{{member.type}}</td>
+                <td>{{member.firstName}}</td>
+                <td>{{member.middleName}}</td>
+                <td>{{member.lastName}}</td>
+                <td>{{member.birthdate | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="member.family">
+                        <a [routerLink]="['../family-mi', member.family?.id, 'view' ]" >{{member.family?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="member.phone">
+                        <a [routerLink]="['../phone-mi', member.phone?.id, 'view' ]" >{{member.phone?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="member.email">
+                        <a [routerLink]="['../email-mi', member.email?.id, 'view' ]" >{{member.email?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="member.socialMedia">
+                        <a [routerLink]="['../social-media-mi', member.socialMedia?.id, 'view' ]" >{{member.socialMedia?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="member.notes">
+                        <a [routerLink]="['../notes-mi', member.notes?.id, 'view' ]" >{{member.notes?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="member.companion">
+                        <a [routerLink]="['../companion-mi', member.companion?.id, 'view' ]" >{{member.companion?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="member.ministry">
+                        <a [routerLink]="['../ministry-mi', member.ministry?.id, 'view' ]" >{{member.ministry?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/member-mi', member.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/member-mi', member.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'member-mi/'+ member.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+    "name": "Companion",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "otherEntityRelationshipName": "companion"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "companionship",
+            "otherEntityName": "companionship",
+            "otherEntityRelationshipName": "companion"
+        }
+    ],
+    "changelogDate": "20180727175644",
+    "entityTableName": "companion",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

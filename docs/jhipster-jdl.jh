@@ -7,18 +7,18 @@ entity Family {
     address String
 }
 entity Member {
-	type FamilyType,
+	type FamilyType required,
     firstName String,
     middleName String,
     lastName String,
     birthdate Instant
 }
 enum FamilyType {
-    INFANT, 
-    PRIMARY, 
-    YW, 
-    YM, 
-    RELIEF_SOCIETY, 
+    INFANT,
+    PRIMARY,
+    YW,
+    YM,
+    RELIEF_SOCIETY,
     ELDER,
     HP
 }
@@ -26,7 +26,7 @@ entity Companionship {
 	name String required
 }
 entity Phone {
-	type PhoneType
+	type PhoneType required,
 	number String required,
     textMsgOkay Boolean
 }
@@ -36,7 +36,7 @@ enum PhoneType {
     BUSINESS
 }
 entity Email {
-	type EmailType,
+	type EmailType required,
     address String
 }
 enum EmailType {
@@ -45,7 +45,7 @@ enum EmailType {
     BUSINESS
 }
 entity SocialMedia {
-	type SocialMediaType,
+	typeype SocialMediaType required,
     url String
 }
 enum SocialMediaType {
@@ -56,13 +56,21 @@ enum SocialMediaType {
     BUSINESS
 }
 entity Notes {
-	type NoteType,
+	type NoteType required,
     note String
 }
+
+enum NoteType {
+    INDIVIDUAL,
+    COMPANIONSHIP,
+    FAMILY
+}
+
 entity Stewardship {}
 entity Companion {}
 entity Assignment {}
 entity Ministry {}
+
 // defining multiple OneToMany relationships with comments
 relationship OneToMany {
 	Member{org} to Org
@@ -73,7 +81,7 @@ relationship OneToMany {
     Stewardship{companionship} to Companionship
     Ministry{member} to Member
     Ministry{companionship} to Companionship
-    Ministry{stewardship} to Stewardhip
+    Ministry{stewardship} to Stewardship
     Phone{member} to Member
     Email{member} to Member
     SocialMedia{member} to Member
@@ -92,9 +100,11 @@ relationship OneToOne {
 paginate Family, Member with infinite-scroll
 paginate Companionship with pagination
 
-dto * with mapstruct
+// dto Org, Family, Member, Companionship, Phone, Email, SocialMedia, Notes with mapstruct
 
 // Set service options to all except few
-// service all with serviceImpl except Employee, Job
+// service all with serviceImpl
+
 // Set an angular suffix
 angularSuffix * with mi
+

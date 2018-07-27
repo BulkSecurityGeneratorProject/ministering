@@ -1,0 +1,56 @@
+{
+    "name": "Companionship",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "companionship",
+            "otherEntityName": "stewardship",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "companionship"
+        },
+        {
+            "relationshipName": "notes",
+            "otherEntityName": "notes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "stewardship",
+            "otherEntityName": "stewardship",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "companion",
+            "otherEntityName": "companion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "ministry",
+            "otherEntityName": "ministry",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180727175638",
+    "entityTableName": "companionship",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

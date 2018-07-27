@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-phone-mi-heading" jhiTranslate="ministeringApp.phone.home.createOrEditLabel">Create or edit a Phone</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!phone.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="phone.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.phone.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="phone.type" id="field_type"  required>
+                        <option value="MOBILE">{{'ministeringApp.PhoneType.MOBILE' | translate}}</option>
+                        <option value="LAND_LAND">{{'ministeringApp.PhoneType.LAND_LAND' | translate}}</option>
+                        <option value="BUSINESS">{{'ministeringApp.PhoneType.BUSINESS' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.phone.number" for="field_number">Number</label>
+                    <input type="text" class="form-control" name="number" id="field_number"
+                        [(ngModel)]="phone.number" required/>
+                    <div [hidden]="!(editForm.controls.number?.dirty && editForm.controls.number?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.number?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.phone.textMsgOkay" for="field_textMsgOkay">Text Msg Okay</label>
+                    <input type="checkbox" class="form-control" name="textMsgOkay" id="field_textMsgOkay"
+                        [(ngModel)]="phone.textMsgOkay" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

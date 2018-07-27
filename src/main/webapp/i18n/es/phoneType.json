@@ -1,0 +1,10 @@
+{
+    "ministeringApp": {
+        "PhoneType" : {
+            "null": "",
+            "MOBILE": "MOBILE",
+            "LAND_LAND": "LAND_LAND",
+            "BUSINESS": "BUSINESS"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "name": "Ministry",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "otherEntityRelationshipName": "ministry"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "companionship",
+            "otherEntityName": "companionship",
+            "otherEntityRelationshipName": "ministry"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "stewardship",
+            "otherEntityName": "stewardship",
+            "otherEntityRelationshipName": "ministry"
+        }
+    ],
+    "changelogDate": "20180727175646",
+    "entityTableName": "ministry",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

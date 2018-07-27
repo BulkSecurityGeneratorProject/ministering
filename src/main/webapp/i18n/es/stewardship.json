@@ -1,0 +1,25 @@
+
+{
+    "ministeringApp": {
+        "stewardship" : {
+            "home": {
+                "title": "Stewardships",
+                "createLabel": "Crear nuevo Stewardship",
+                "createOrEditLabel": "Crear o editar Stewardship",
+                "search": "Search for Stewardship"
+            },
+            "created": "Un nuevo Stewardship ha sido creado con el identificador {{ param }}",
+            "updated": "Un Stewardship ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Stewardship ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Stewardship {{ id }}?"
+            },
+            "detail": {
+                "title": "Stewardship"
+            },
+            "companionship": "Companionship",
+            "assignment": "Assignment",
+            "ministry": "Ministry"
+        }
+    }
+}

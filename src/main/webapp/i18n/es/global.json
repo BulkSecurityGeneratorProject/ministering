@@ -7,6 +7,18 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entidades",
+                "orgMi": "Org",
+                "familyMi": "Family",
+                "memberMi": "Member",
+                "companionshipMi": "Companionship",
+                "phoneMi": "Phone",
+                "emailMi": "Email",
+                "socialMediaMi": "Social Media",
+                "notesMi": "Notes",
+                "stewardshipMi": "Stewardship",
+                "companionMi": "Companion",
+                "assignmentMi": "Assignment",
+                "ministryMi": "Ministry",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

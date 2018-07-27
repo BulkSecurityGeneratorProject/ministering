@@ -1,0 +1,24 @@
+
+{
+    "ministeringApp": {
+        "org" : {
+            "home": {
+                "title": "Orgs",
+                "createLabel": "Crear nuevo Org",
+                "createOrEditLabel": "Crear o editar Org",
+                "search": "Search for Org"
+            },
+            "created": "Un nuevo Org ha sido creado con el identificador {{ param }}",
+            "updated": "Un Org ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Org ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Org {{ id }}?"
+            },
+            "detail": {
+                "title": "Org"
+            },
+            "name": "Name",
+            "member": "Member"
+        }
+    }
+}

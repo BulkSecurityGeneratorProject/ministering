@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Companionship.
+    -->
+    <changeSet id="20180727175638-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="companionship_id"
+                                 baseTableName="companionship"
+                                 constraintName="fk_companionship_companionship_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="stewardship"/>
+
+        <addForeignKeyConstraint baseColumnNames="notes_id"
+                                 baseTableName="companionship"
+                                 constraintName="fk_companionship_notes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notes"/>
+
+        <addForeignKeyConstraint baseColumnNames="stewardship_id"
+                                 baseTableName="companionship"
+                                 constraintName="fk_companionship_stewardship_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="stewardship"/>
+
+        <addForeignKeyConstraint baseColumnNames="companion_id"
+                                 baseTableName="companionship"
+                                 constraintName="fk_companionship_companion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="companion"/>
+
+        <addForeignKeyConstraint baseColumnNames="ministry_id"
+                                 baseTableName="companionship"
+                                 constraintName="fk_companionship_ministry_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ministry"/>
+
+    </changeSet>
+</databaseChangeLog>

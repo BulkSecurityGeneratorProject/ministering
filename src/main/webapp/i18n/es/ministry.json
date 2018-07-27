@@ -1,0 +1,25 @@
+
+{
+    "ministeringApp": {
+        "ministry" : {
+            "home": {
+                "title": "Ministries",
+                "createLabel": "Crear nuevo Ministry",
+                "createOrEditLabel": "Crear o editar Ministry",
+                "search": "Search for Ministry"
+            },
+            "created": "Un nuevo Ministry ha sido creado con el identificador {{ param }}",
+            "updated": "Un Ministry ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Ministry ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Ministry {{ id }}?"
+            },
+            "detail": {
+                "title": "Ministry"
+            },
+            "member": "Member",
+            "companionship": "Companionship",
+            "stewardship": "Stewardship"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "Assignment",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "stewardship",
+            "otherEntityName": "stewardship",
+            "otherEntityRelationshipName": "assignment"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "family",
+            "otherEntityName": "family",
+            "otherEntityRelationshipName": "assignment"
+        }
+    ],
+    "changelogDate": "20180727175645",
+    "entityTableName": "assignment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

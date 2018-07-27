@@ -1,0 +1,14 @@
+{
+    "ministeringApp": {
+        "FamilyType" : {
+            "null": "",
+            "INFANT": "INFANT",
+            "PRIMARY": "PRIMARY",
+            "YW": "YW",
+            "YM": "YM",
+            "RELIEF_SOCIETY": "RELIEF_SOCIETY",
+            "ELDER": "ELDER",
+            "HP": "HP"
+        }
+    }
+}

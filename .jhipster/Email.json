@@ -1,0 +1,35 @@
+{
+    "name": "Email",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "EmailType",
+            "fieldValues": "INDIVIDUAL,HOUSEHOLD,BUSINESS",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "otherEntityRelationshipName": "email"
+        }
+    ],
+    "changelogDate": "20180727175640",
+    "entityTableName": "email",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

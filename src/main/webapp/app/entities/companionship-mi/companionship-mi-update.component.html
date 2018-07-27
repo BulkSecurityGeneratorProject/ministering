@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-companionship-mi-heading" jhiTranslate="ministeringApp.companionship.home.createOrEditLabel">Create or edit a Companionship</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!companionship.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="companionship.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.companionship.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="companionship.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.companionship.companionship" for="field_companionship">Companionship</label>
+                    <select class="form-control" id="field_companionship" name="companionship" [(ngModel)]="companionship.companionship">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stewardshipOption.id === companionship.companionship?.id ? companionship.companionship : stewardshipOption" *ngFor="let stewardshipOption of companionships; trackBy: trackStewardshipById">{{stewardshipOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.companionship.notes" for="field_notes">Notes</label>
+                    <select class="form-control" id="field_notes" name="notes" [(ngModel)]="companionship.notes" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="notesOption.id === companionship.notes?.id ? companionship.notes : notesOption" *ngFor="let notesOption of notes; trackBy: trackNotesById">{{notesOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.companionship.stewardship" for="field_stewardship">Stewardship</label>
+                    <select class="form-control" id="field_stewardship" name="stewardship" [(ngModel)]="companionship.stewardship" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="stewardshipOption.id === companionship.stewardship?.id ? companionship.stewardship : stewardshipOption" *ngFor="let stewardshipOption of stewardships; trackBy: trackStewardshipById">{{stewardshipOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.companionship.companion" for="field_companion">Companion</label>
+                    <select class="form-control" id="field_companion" name="companion" [(ngModel)]="companionship.companion" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companionOption.id === companionship.companion?.id ? companionship.companion : companionOption" *ngFor="let companionOption of companions; trackBy: trackCompanionById">{{companionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.companionship.ministry" for="field_ministry">Ministry</label>
+                    <select class="form-control" id="field_ministry" name="ministry" [(ngModel)]="companionship.ministry" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ministryOption.id === companionship.ministry?.id ? companionship.ministry : ministryOption" *ngFor="let ministryOption of ministries; trackBy: trackMinistryById">{{ministryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

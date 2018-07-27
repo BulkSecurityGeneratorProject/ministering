@@ -1,0 +1,27 @@
+
+{
+    "ministeringApp": {
+        "notes" : {
+            "home": {
+                "title": "Notes",
+                "createLabel": "Crear nuevo Notes",
+                "createOrEditLabel": "Crear o editar Notes",
+                "search": "Search for Notes"
+            },
+            "created": "Un nuevo Notes ha sido creado con el identificador {{ param }}",
+            "updated": "Un Notes ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Notes ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Notes {{ id }}?"
+            },
+            "detail": {
+                "title": "Notes"
+            },
+            "type": "Type",
+            "note": "Note",
+            "member": "Member",
+            "companionship": "Companionship",
+            "family": "Family"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-stewardship-mi-heading" jhiTranslate="ministeringApp.stewardship.home.createOrEditLabel">Create or edit a Stewardship</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!stewardship.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="stewardship.id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.stewardship.assignment" for="field_assignment">Assignment</label>
+                    <select class="form-control" id="field_assignment" name="assignment" [(ngModel)]="stewardship.assignment" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="assignmentOption.id === stewardship.assignment?.id ? stewardship.assignment : assignmentOption" *ngFor="let assignmentOption of assignments; trackBy: trackAssignmentById">{{assignmentOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ministeringApp.stewardship.ministry" for="field_ministry">Ministry</label>
+                    <select class="form-control" id="field_ministry" name="ministry" [(ngModel)]="stewardship.ministry" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="ministryOption.id === stewardship.ministry?.id ? stewardship.ministry : ministryOption" *ngFor="let ministryOption of ministries; trackBy: trackMinistryById">{{ministryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

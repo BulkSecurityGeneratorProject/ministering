@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stewardship">
+            <h2><span jhiTranslate="ministeringApp.stewardship.detail.title">Stewardship</span> {{stewardship.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ministeringApp.stewardship.assignment">Assignment</span></dt>
+                <dd>
+                    <div *ngIf="stewardship.assignment">
+                        <a [routerLink]="['/assignment-mi', stewardship.assignment?.id, 'view']">{{stewardship.assignment?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.stewardship.ministry">Ministry</span></dt>
+                <dd>
+                    <div *ngIf="stewardship.ministry">
+                        <a [routerLink]="['/ministry-mi', stewardship.ministry?.id, 'view']">{{stewardship.ministry?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stewardship-mi', stewardship.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "ministeringApp": {
+        "NoteType" : {
+            "null": "",
+            "INDIVIDUAL": "INDIVIDUAL",
+            "COMPANIONSHIP": "COMPANIONSHIP",
+            "FAMILY": "FAMILY"
+        }
+    }
+}

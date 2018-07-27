@@ -1,0 +1,35 @@
+{
+    "name": "SocialMedia",
+    "fields": [
+        {
+            "fieldName": "typeype",
+            "fieldType": "SocialMediaType",
+            "fieldValues": "FACEBOOK,TWITTER,GOOGLE,WEB_SITE,BUSINESS",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "otherEntityRelationshipName": "socialMedia"
+        }
+    ],
+    "changelogDate": "20180727175641",
+    "entityTableName": "social_media",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

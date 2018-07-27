@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="member">
+            <h2><span jhiTranslate="ministeringApp.member.detail.title">Member</span> {{member.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ministeringApp.member.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ministeringApp.FamilyType.' + member.type}}">{{member.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{member.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.middleName">Middle Name</span></dt>
+                <dd>
+                    <span>{{member.middleName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{member.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.birthdate">Birthdate</span></dt>
+                <dd>
+                    <span>{{member.birthdate}}</span>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.family">Family</span></dt>
+                <dd>
+                    <div *ngIf="member.family">
+                        <a [routerLink]="['/family-mi', member.family?.id, 'view']">{{member.family?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.phone">Phone</span></dt>
+                <dd>
+                    <div *ngIf="member.phone">
+                        <a [routerLink]="['/phone-mi', member.phone?.id, 'view']">{{member.phone?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.email">Email</span></dt>
+                <dd>
+                    <div *ngIf="member.email">
+                        <a [routerLink]="['/email-mi', member.email?.id, 'view']">{{member.email?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.socialMedia">Social Media</span></dt>
+                <dd>
+                    <div *ngIf="member.socialMedia">
+                        <a [routerLink]="['/social-media-mi', member.socialMedia?.id, 'view']">{{member.socialMedia?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.notes">Notes</span></dt>
+                <dd>
+                    <div *ngIf="member.notes">
+                        <a [routerLink]="['/notes-mi', member.notes?.id, 'view']">{{member.notes?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.companion">Companion</span></dt>
+                <dd>
+                    <div *ngIf="member.companion">
+                        <a [routerLink]="['/companion-mi', member.companion?.id, 'view']">{{member.companion?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.member.ministry">Ministry</span></dt>
+                <dd>
+                    <div *ngIf="member.ministry">
+                        <a [routerLink]="['/ministry-mi', member.ministry?.id, 'view']">{{member.ministry?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/member-mi', member.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

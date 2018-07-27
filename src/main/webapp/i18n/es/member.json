@@ -1,0 +1,35 @@
+
+{
+    "ministeringApp": {
+        "member" : {
+            "home": {
+                "title": "Members",
+                "createLabel": "Crear nuevo Member",
+                "createOrEditLabel": "Crear o editar Member",
+                "search": "Search for Member"
+            },
+            "created": "Un nuevo Member ha sido creado con el identificador {{ param }}",
+            "updated": "Un Member ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Member ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Member {{ id }}?"
+            },
+            "detail": {
+                "title": "Member"
+            },
+            "type": "Type",
+            "firstName": "First Name",
+            "middleName": "Middle Name",
+            "lastName": "Last Name",
+            "birthdate": "Birthdate",
+            "org": "Org",
+            "family": "Family",
+            "phone": "Phone",
+            "email": "Email",
+            "socialMedia": "Social Media",
+            "notes": "Notes",
+            "companion": "Companion",
+            "ministry": "Ministry"
+        }
+    }
+}

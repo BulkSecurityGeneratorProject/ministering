@@ -1,0 +1,10 @@
+{
+    "ministeringApp": {
+        "EmailType" : {
+            "null": "",
+            "INDIVIDUAL": "INDIVIDUAL",
+            "HOUSEHOLD": "HOUSEHOLD",
+            "BUSINESS": "BUSINESS"
+        }
+    }
+}

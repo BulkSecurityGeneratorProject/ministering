@@ -1,0 +1,89 @@
+{
+    "name": "Member",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "FamilyType",
+            "fieldValues": "INFANT,PRIMARY,YW,YM,RELIEF_SOCIETY,ELDER,HP",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "middleName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthdate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "org",
+            "otherEntityName": "org",
+            "otherEntityRelationshipName": "member"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "family",
+            "otherEntityName": "family",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "phone",
+            "otherEntityName": "phone",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "email",
+            "otherEntityName": "email",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "socialMedia",
+            "otherEntityName": "socialMedia",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "notes",
+            "otherEntityName": "notes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "companion",
+            "otherEntityName": "companion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "ministry",
+            "otherEntityName": "ministry",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180727175637",
+    "entityTableName": "member",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

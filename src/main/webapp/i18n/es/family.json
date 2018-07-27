@@ -1,0 +1,27 @@
+
+{
+    "ministeringApp": {
+        "family" : {
+            "home": {
+                "title": "Families",
+                "createLabel": "Crear nuevo Family",
+                "createOrEditLabel": "Crear o editar Family",
+                "search": "Search for Family"
+            },
+            "created": "Un nuevo Family ha sido creado con el identificador {{ param }}",
+            "updated": "Un Family ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Family ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Family {{ id }}?"
+            },
+            "detail": {
+                "title": "Family"
+            },
+            "name": "Name",
+            "coupleName": "Couple Name",
+            "address": "Address",
+            "notes": "Notes",
+            "assignment": "Assignment"
+        }
+    }
+}

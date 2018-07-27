@@ -1,0 +1,47 @@
+{
+    "name": "Notes",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "NoteType",
+            "fieldValues": "INDIVIDUAL,COMPANIONSHIP,FAMILY",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "member",
+            "otherEntityName": "member",
+            "otherEntityRelationshipName": "notes"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "companionship",
+            "otherEntityName": "companionship",
+            "otherEntityRelationshipName": "notes"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "family",
+            "otherEntityName": "family",
+            "otherEntityRelationshipName": "notes"
+        }
+    ],
+    "changelogDate": "20180727175642",
+    "entityTableName": "notes",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "mi"
+}

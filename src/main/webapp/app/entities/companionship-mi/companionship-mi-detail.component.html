@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="companionship">
+            <h2><span jhiTranslate="ministeringApp.companionship.detail.title">Companionship</span> {{companionship.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ministeringApp.companionship.name">Name</span></dt>
+                <dd>
+                    <span>{{companionship.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.companionship.companionship">Companionship</span></dt>
+                <dd>
+                    <div *ngIf="companionship.companionship">
+                        <a [routerLink]="['/stewardship-mi', companionship.companionship?.id, 'view']">{{companionship.companionship?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.companionship.notes">Notes</span></dt>
+                <dd>
+                    <div *ngIf="companionship.notes">
+                        <a [routerLink]="['/notes-mi', companionship.notes?.id, 'view']">{{companionship.notes?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.companionship.stewardship">Stewardship</span></dt>
+                <dd>
+                    <div *ngIf="companionship.stewardship">
+                        <a [routerLink]="['/stewardship-mi', companionship.stewardship?.id, 'view']">{{companionship.stewardship?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.companionship.companion">Companion</span></dt>
+                <dd>
+                    <div *ngIf="companionship.companion">
+                        <a [routerLink]="['/companion-mi', companionship.companion?.id, 'view']">{{companionship.companion?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ministeringApp.companionship.ministry">Ministry</span></dt>
+                <dd>
+                    <div *ngIf="companionship.ministry">
+                        <a [routerLink]="['/ministry-mi', companionship.ministry?.id, 'view']">{{companionship.ministry?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/companionship-mi', companionship.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
