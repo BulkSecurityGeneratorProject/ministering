@@ -3,14 +3,14 @@ entity Org {
 }
 entity Family {
 	name String required,
-    couple_name String,
+    coupleName String,
     address String
 }
 entity Member {
 	type FamilyType,
-    first_name String,
-    middle_name String,
-    last_name String,
+    firstName String,
+    middleName String,
+    lastName String,
     birthdate Instant
 }
 enum FamilyType {
@@ -28,7 +28,7 @@ entity Companionship {
 entity Phone {
 	type PhoneType
 	number String required,
-    text_msg_okay Boolean
+    textMsgOkay Boolean
 }
 enum PhoneType {
 	MOBILE,
@@ -87,6 +87,7 @@ relationship ManyToOne {
 relationship OneToOne {
 	Companionship{companionship} to Stewardship
 }
+
 // Set pagination options
 paginate Family, Member with infinite-scroll
 paginate Companionship with pagination
@@ -96,4 +97,4 @@ dto * with mapstruct
 // Set service options to all except few
 // service all with serviceImpl except Employee, Job
 // Set an angular suffix
-angularSuffix * with ma
+angularSuffix * with mi
