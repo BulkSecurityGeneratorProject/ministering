@@ -28,7 +28,7 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/ministering?useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: ministring
+        username: root
         password: Passw0rd
         hikari:
             data-source-properties:
