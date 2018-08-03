@@ -9,7 +9,7 @@ services:
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=ministering-elasticsearch:9300
         ports:
-            - 8080:8080
+            - 8001:8080
     ministering-mysql:
         extends:
             file: mysql.yml
